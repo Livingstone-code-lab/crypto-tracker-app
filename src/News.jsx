@@ -1,4 +1,6 @@
-export default function News({source, author, description, content, publishedAt, title, url, urlToImage}) {
+import defaultNewsImage from "./assets/defaultNewsImage.jpg";  
+
+export default function News({source_category, author, description, published, title, url, image}) {
     return (
         <div className="w-full max-w-4xl mx-auto mb-10 bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200">
 
@@ -9,7 +11,8 @@ export default function News({source, author, description, content, publishedAt,
       </h3>
 
       <img
-         src={urlToImage}
+         src={image || defaultNewsImage}
+         onError={(e) => {e.currentTarget.onerror = null; e.currentTarget.src = defaultNewsImage;}}
          alt={`Article: ${title}`}
          className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-lg"
       />
@@ -21,11 +24,11 @@ export default function News({source, author, description, content, publishedAt,
          </p>
 
          <p>
-            {new Date(publishedAt).toLocaleDateString()}
+            {new Date(published).toLocaleDateString()}
          </p>
 
          <p className="font-medium text-gray-700">
-            {source?.name}
+            {source_category}
          </p>
 
       </div>
@@ -36,19 +39,9 @@ export default function News({source, author, description, content, publishedAt,
       </p>
 
       {/* Content */}
-      <p className="text-sm sm:text-base text-gray-600 leading-7 break-words">
-         {content}
-
-         {" "}
-         <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-2 font-medium text-blue-600 hover:text-blue-800 hover:underline"
-         >
-            Read more →
-         </a>
-      </p>
+      <div className="text-sm sm:text-base text-gray-600 leading-7 break-words">
+         <a href={url} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 font-medium text-blue-600 hover:text-blue-800 hover:underline">Read more →</a>
+      </div>
 
    </div>
 </div>
