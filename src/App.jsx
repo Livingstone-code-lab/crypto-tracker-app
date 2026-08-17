@@ -61,7 +61,7 @@ export default function App() {
 
       const [resOne, resTwo, resThree] = await Promise.all([
        fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${selectCurrency.code.toLowerCase()}&order=market_cap_desc&per_page=100&page=1`),
-        fetch(`https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=${selectCurrency.code.toUpperCase()}&apiKey=2310141f7b5d526c58dd96c4c4c1975ce44ddd3066eb5110c6218a4070fefc8a`),
+        fetch(`https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=${selectCurrency.code.toUpperCase()}&apiKey=06bb5a879b7ab7b35b98a8062843795245eb1c945461a66c2c00a742a602336b`),
         fetch(`https://api.currentsapi.services/v1/search?keywords=crypto&language=${selectLanguage}&page_size=20&apiKey=Qe318OIln8ixHQA0x7WYMHO3enXCUvF7ojW7zWffnEZ2Sx4b`)
       ])
 
@@ -118,7 +118,6 @@ export default function App() {
       const dataOne = await resOne.json();
       const dataTwo = await resTwo.json();
       const dataThree = await resThree.json();
-      console.log(dataThree);
 
    
       if (dataOne.length > 0) {

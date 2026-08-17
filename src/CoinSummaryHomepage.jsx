@@ -17,7 +17,7 @@ export default function CoinSummaryHomepage({selectedCoin, chartCurrency}) {
 
 
     return (
-         <div className="flex sm:justify-between gap-5">
+         <div className="flex flex-col sm:flex-row sm:justify-between gap-5">
             <div className="flex flex-col outline outline-1 outline-gray-300 rounded-[2px] w-full sm:w-115 p-3 bg-white">
                 <h6 className="flex font-medium text-xs mb-3">Market Stats</h6>
                 <div className="flex justify-between">
